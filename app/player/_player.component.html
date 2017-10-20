@@ -1,0 +1,67 @@
+<!--
+<p>
+  {{player1.firstname}}
+</p>
+<p *ngFor="let player of players">{{ player.firstname }}</p>
+<ul>
+  <li *ngFor="let player of players">{{ player.firstname }}</li>
+</ul>
+-->
+<!-- <p>{{t}}</p>
+<p [innerText]="t"></p>
+<div [innerText]="t"></div>
+<button [innerText]="t  styleUrls: ['./add-player.component.css']"></button> -->
+
+<!-- <div>
+  <input
+  type="text"
+  (keyup)="saisie($event)">
+  <span>{{t}}</span>
+</div> -->
+
+<div>
+  <!-- <input type="text" [(ngModel)]="t2">
+  <span>{{t2}}</span> -->
+  <input type="checkbox" [(ngModel)]="cb">
+  <span *ngIf="cb">Afficher</span>
+  <span *ngIf="!cb">Masquer</span>
+   le tableau
+   <select [(ngModel)]="selectColor">
+    <option *ngFor="let couleur of couleurs">{{couleur}}</option>
+   </select>
+</div>
+
+<add-player
+  [c1]="defaultColor"
+  [c2]="selectColor"
+  (myEvent)="addPlayer($event)"
+>
+</add-player>
+
+<table *ngIf="!cb" class="table table-striped table-bordered">
+  <tr>
+    <th>#</th>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Numéro</th>
+    <th>Equipe</th>
+    <th>Photo</th>
+  </tr>
+  <tr
+    *ngFor="let player of players; index as i"
+    [ngClass]="{'lost':player.team == 'PSG', 'test':true}"
+  >
+    <td>{{i + 1}}</td>
+    <td>{{player.firstname}}</td>
+    <td>{{player.lastname}}</td>
+    <td>
+      {{player.num}}
+      <span *ngIf="player.num == 10"> (Meneur de jeu)</span>
+    </td>
+    <td [ngStyle]="{'color': selectColor, 'font-size':'20px'}">
+      {{player.team}}
+      <span *ngIf="!player.team"> Au chômage</span>
+    </td>
+    <td><img src="{{player.photo}}"></td>
+  </tr>
+</table>

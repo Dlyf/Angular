@@ -1,0 +1,13 @@
+.win {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.lost {
+  color: red;
+}
+
+img {
+  width: 100px
+}

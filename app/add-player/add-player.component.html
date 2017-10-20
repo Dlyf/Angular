@@ -1,0 +1,20 @@
+<!-- Ajout d'un joueur -->
+<div class="well">
+  Nom <input type="text" [(ngModel)]="newPlayer.firstname">
+  Prénom <input type="text" [(ngModel)]="newPlayer.lastname">
+  <!-- Numéro <input type="text" [(ngModel)]="newPlayer.num"> -->
+
+  <select [(ngModel)]="newPlayer.num">
+    <option value="-1">Choisir un numéro</option>
+    <option *ngFor="let n of number_list">{{n}}</option>
+  </select>
+  Equipe <input type="text" [(ngModel)]="newPlayer.team">
+  Photo <input type="text" [(ngModel)]="newPlayer.photo">
+  <button class="btn btn-default" (click)="savePlayer()">Enregistrer</button>
+</div>
+
+<!-- <p>Couleurs définies par le parent:</p>
+<ul>
+  <li>Couleur 1 {{c1}}</li>
+  <li>Couleur 2 {{c2}}</li>
+</ul> -->

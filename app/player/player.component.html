@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <img style="width:50px" [src]="player.photo">
+    </div>
+    <div class="col-sm-3">
+      {{player.firstname}}
+    </div>
+    <div class="col-sm-3">
+      {{player.lastname}}
+    </div>
+    <div class="col-sm-3">
+      <a routerLink="players/{{player.lastname}}" class="btn btn-primary btn-xs">Détails</a>
+      <button
+        class="btn btn-danger btn-xs"
+        (click)="deletePlayer()">Supprimer</button>
+    </div>
+  </div>
+</div>
